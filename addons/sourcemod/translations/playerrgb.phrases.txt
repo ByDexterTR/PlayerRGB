@@ -1,0 +1,8 @@
+"Phrases"
+{
+	"Toggled RGB"
+	{
+		"#format"		"{1:N}"
+		"en"			"toggled rainbow on {1}."
+	}
+}
