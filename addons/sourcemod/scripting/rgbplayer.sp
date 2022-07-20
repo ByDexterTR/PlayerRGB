@@ -20,7 +20,7 @@ public void OnPluginStart()
 {
 	LoadTranslations("common.phrases");
 	LoadTranslations("playerrgb.phrases");
-	RegAdminCmd("sm_rgb", Command_RGB, ADMFLAG_ROOT, "sm_rgb");
+	RegAdminCmd("sm_rgb", Command_RGB, ADMFLAG_CHEATS, "[SM] Usage: sm_rgb");
 }
 
 public void OnGameFrame()
@@ -42,7 +42,7 @@ public void OnGameFrame()
 	}
 	for (int i = 1; i <= MaxClients; i++)if (IsClientInGame(i) && IsPlayerAlive(i) && !IsFakeClient(i) && RGB[i])
 	{
-		SetEntityRenderColor(i, r1, b1, g1, 255);
+		SetEntityRenderColor(i, r1, g1, b1, 200);
 	}
 }
 
@@ -56,7 +56,7 @@ public Action Command_RGB(int client, int args)
 	RGB[client] = !RGB[client];
 	PrintToChatAll("[SM] %t", "Toggled RGB", client);
 	if (!RGB[client])
-		SetEntityRenderColor(client, 255, 255, 255, 255);
+		SetEntityRenderColor(client);
 	
 	return Plugin_Handled;
 } 
